@@ -1,10 +1,34 @@
 var express = require('express');
 var router = express.Router();
 const model = require('../model/dramaDAO');
+var session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
+var app = express();
+
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({
+    url: "mongodb://localhost/sessionssave",
+    collection: "sessions"
+  })
+}));
+var app = express();
 
 /* GET home page. */
 router.post('/login', function (req, res) {
+  if(req.session.id){
+    req.session.destroy(function(err){
+      if(err){
+          console.log(err);
+      }
+    })
+    console.log('logout');
+    res.redirect('login');
+  }
+  res.render('login');
   console.log('회원가입 완료');
   var paramname = req.body.name || req.query.name;
   var paramid = req.body.id || req.query.id;
@@ -25,6 +49,10 @@ router.post('/index', function (req, res) {
       res.status(401).send("<script>alert('아이디 정보를 찾을 수 없습니다.');window.location = '/login'</script>")
     }
     else {
+      req.session.id = paramid;
+      req.session.save(function(){
+         console.log(req.session);
+      });
       res.render('index'); 
     }
     model.close;
@@ -42,6 +70,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/login', function (req, res) {
+ 
   console.log('login 호출됨');
   res.render('login');
 });
@@ -93,3 +122,4 @@ router.get('/signup', function (req, res) {
 
 
 module.exports = router;
+

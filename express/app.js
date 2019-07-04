@@ -1,9 +1,12 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var favicon = require('serve-favicon')
+var favicon = require('serve-favicon');
+var session = require('express-session');
+var bodyPaser = require('body-parser');
+const MongoStore = require('connect-mongo')(session);
+
 
 ///////////////////
 var indexRouter = require('./routes/index');
@@ -21,7 +24,6 @@ app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 ////////////
@@ -31,17 +33,17 @@ app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 ////////////////////////
 
-app.get('/visotors', function(req, res) {
-  var visitors = req.cookies.visitors || 0;
-   
-  visitors++;
-   
-  res.cookie('visitors', visitors, {
-      maxAge: 10000
- });
-  
- res.send('visitors: ' + visitors); 
-});
+
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({
+    url: "mongodb://localhost/sessionssave",
+    collection: "sessions"
+  })
+}));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
