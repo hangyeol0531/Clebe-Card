@@ -3,16 +3,13 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var favicon = require('serve-favicon');
-var session = require('express-session');
 var bodyPaser = require('body-parser');
-const MongoStore = require('connect-mongo')(session);
+// const MongoStore = require('connect-mongo')(session);
+// var session = require('express-session');
 
 
 ///////////////////
 var indexRouter = require('./routes/index');
-var cardRouter = require('./routes/card');
-var loginRouter = require('./routes/login');
-var signupRouter = require('./routes/signup');
 /////////////////
 
 var app = express();
@@ -28,21 +25,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 ////////////
 app.use('/', indexRouter);
-app.use('/card', cardRouter);
-app.use('/login', loginRouter);
-app.use('/signup', signupRouter);
 ////////////////////////
 
 
-app.use(session({
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: true,
-  store: new MongoStore({
-    url: "mongodb://localhost/sessionssave",
-    collection: "sessions"
-  })
-}));
+// app.use(session({
+//   secret: 'secret',
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new MongoStore({
+//     url: "mongodb://localhost/sessionssave",
+//     collection: "sessions"
+//   })
+// }));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
