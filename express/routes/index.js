@@ -14,26 +14,22 @@ function cookiecheck(req, res){
   res.redirect('login');
   }
 }
-// app.use(session({
-//   secret: 'secret',
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new MongoStore({
-//     url: "mongodb://localhost/sessionssave",
-//     collection: "sessions"
-//   })
-// }));
 
 var app = express();
 app.use(cookieParser());
 
 /* GET home page. */
 router.post('/login', function (req, res) {
-  console.log('회원가입 완료');
   var paramname = req.body.name || req.query.name;
   var paramid = req.body.id || req.query.id;
   var parampassword = req.body.password || req.query.password;
+  var parampassword = req.body.repassword || req.query.repassword;
   var userinformation = {name: paramname, id : paramid, password : parampassword };
+  if(parampassword === parampassword){
+    console.log("비밀번호 확인 오류");
+    res.status(401).send("<script>alert('비밀번호가 다릅니다!');window.location = '/signup'</script>")
+  }
+  console.log('회원가입 완료');
   console.log(userinformation)
   model.insertDrama(userinformation)
   model.close();

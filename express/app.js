@@ -28,16 +28,6 @@ app.use('/', indexRouter);
 ////////////////////////
 
 
-// app.use(session({
-//   secret: 'secret',
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new MongoStore({
-//     url: "mongodb://localhost/sessionssave",
-//     collection: "sessions"
-//   })
-// }));
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
