@@ -36,24 +36,23 @@
 								<p>결혼 청첩장 ver.2</p>
 							</article>
 
-							<form>
+							<form action = "./marry2production" method ="POST">
                                 <div class="form-label-group">
-                                    <input type="text" id="inputEmail" class="form-control" placeholder="신랑 이름" required>
+									<input type="text" id="inputEmail" name = "sinrang" class="form-control" placeholder="신랑 이름" required>                                    <label for="inputPassword"></label>
+                                </div>
+                                
+                                <div class="form-label-group">
+									<input type="text" id="inputEmail" name = "sinbu" class="form-control" placeholder="신부 이름" required>
                                     <label for="inputPassword"></label>
                                 </div>
                                 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputEmail" class="form-control" placeholder="신부 이름" required>
+                                    <input type="text" id="inputEmail" name = "date" class="form-control" placeholder="결혼 날짜 및 시간" required>
                                     <label for="inputPassword"></label>
                                 </div>
                                 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputEmail" class="form-control" placeholder="결혼 날짜 및 시간" required>
-                                    <label for="inputPassword"></label>
-                                </div>
-                                
-                                <div class="form-label-group">
-                                    <input type="text" id="inputEmail" class="form-control" placeholder="장소" required>
+                                    <input type="text" id="inputEmail" name = "place" class="form-control" placeholder="장소" required>
                                     <label for="inputPassword"></label>
                                 </div>  
                                 
@@ -62,9 +61,7 @@
                                     <label for="inputPassword"></label>
                                 </div>  
                                 <br>
-    
-                                <a href="/marry2production" class="button">card Production♡</a>
-    
+								<input type="submit" class="button" value = "card Production♡" >  
                                                 
                             </form>
 							

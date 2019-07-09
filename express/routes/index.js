@@ -52,7 +52,6 @@ router.post('/index', function (req, res) {
       // });
       console.log("쿠키 생성")
       res.cookie('user', paramid, {
-        maxAge: 60 * 24 * 24,
    });
    console.log(req.headers.cookie);
       res.render('index'); 
@@ -61,10 +60,66 @@ router.post('/index', function (req, res) {
   });
 });
 
-// router.post('/login', function (req, res) {
-//   console.log('login 호출됨');
-//   res.render('login');
-// });
+router.post('/marryproduction', function (req, res) {
+  var paramsinrang = req.body.sinrang || req.query.sinrang;
+  var parampassword = req.body.sinbu || req.query.sinbu;
+  var paramdate = req.body.date || req.query.date;
+  var paramplace = req.body.place || req.query.place;
+  var paramphonenumber = req.body.phonenumber || req.query.phonenumber;
+  console.log(paramsinrang)
+  console.log(parampassword)
+  console.log(paramdate)
+  console.log(paramplace)
+  console.log(paramphonenumber)
+
+  res.render('marryproduction')
+  });
+
+router.post('/marry2production', function (req, res) {
+  var paramsinrang = req.body.sinrang || req.query.sinrang;
+  var parampassword = req.body.sinbu || req.query.sinbu;
+  var paramdate = req.body.date || req.query.date;
+  var paramplace = req.body.place || req.query.place;
+  var paramphonenumber = req.body.phonenumber || req.query.phonenumber;
+  console.log(paramsinrang)
+  console.log(parampassword)
+  console.log(paramdate)
+  console.log(paramplace)
+  console.log(paramphonenumber)
+
+  res.render('marry2production')
+  });
+
+router.post('/birthproduction', function (req, res) {
+  var paramsinrang = req.body.sinrang || req.query.sinrang;
+  var parampassword = req.body.sinbu || req.query.sinbu;
+  var paramdate = req.body.date || req.query.date;
+  var paramplace = req.body.place || req.query.place;
+  var paramphonenumber = req.body.phonenumber || req.query.phonenumber;
+  console.log(paramsinrang)
+  console.log(parampassword)
+  console.log(paramdate)
+  console.log(paramplace)
+  console.log(paramphonenumber)
+
+  res.render('birthproduction')
+  });
+
+router.post('/birth2production', function (req, res) {
+  var paramsinrang = req.body.sinrang || req.query.sinrang;
+  var parampassword = req.body.sinbu || req.query.sinbu;
+  var paramdate = req.body.date || req.query.date;
+  var paramplace = req.body.place || req.query.place;
+  var paramphonenumber = req.body.phonenumber || req.query.phonenumber;
+  console.log(paramsinrang)
+  console.log(parampassword)
+  console.log(paramdate)
+  console.log(paramplace)
+  console.log(paramphonenumber)
+
+  res.render('birth2production')
+  });
+
 
 router.get('/', function (req, res) {
   if(req.headers.cookie){
@@ -132,6 +187,11 @@ router.get('/birth2', function (req, res) {
 router.get('/signup', function (req, res) {
   console.log('birth2 호출됨');
   res.render('signup');
+});
+
+router.get('/marryproduction', function (req, res) {
+  console.log('marryproduction 호출됨');
+  res.render('marryproduction');
 });
 
 router.get('/marry2production', function (req, res) {

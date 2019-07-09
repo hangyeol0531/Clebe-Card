@@ -19,7 +19,7 @@
 					<a href="/Q&A">Q&A</a></h1>
 				</h1>
 				</div>
-			</header>
+			</header>	
 
 			<div id="main">
 					<section id="one">
@@ -34,34 +34,33 @@
 								<h3>청첩장 ver.1</h3>
 								<p>결혼 청첩장 ver.1</p>
                             </article>
-                            <form>
+                            <form action = "./marryproduction" method ="POST">
                                 <div class="form-label-group">
-                                    <input type="text" id="inputEmail" class="form-control" placeholder="신랑 이름" required>
+                                    <input type="text" id="inputEmail" name = "sinrang" class="form-control" placeholder="신랑 이름" required>
                                     <label for="inputPassword"></label>
                                 </div>
                                 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputEmail" class="form-control" placeholder="신부 이름" required>
+                                    <input type="text" id="inputEmail" name = "sinbu" class="form-control" placeholder="신부 이름" required>
                                     <label for="inputPassword"></label>
                                 </div>
                                 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputEmail" class="form-control" placeholder="결혼 날짜 및 시간" required>
+                                    <input type="text" id="inputEmail" name = "date" class="form-control" placeholder="결혼 날짜 및 시간" required>
                                     <label for="inputPassword"></label>
                                 </div>
                                 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputEmail" class="form-control" placeholder="장소" required>
+                                    <input type="text" id="inputEmail" name = "place" class="form-control" placeholder="장소" required>
                                     <label for="inputPassword"></label>
                                 </div>  
                                 
                                 <div class="form-label-group">
-                                    <input type="text" id="inputEmail" class="form-control" placeholder="연락처" required>
+                                    <input type="text" id="inputEmail" name ="phonenumber" class="form-control" placeholder="연락처" required>
                                     <label for="inputPassword"></label>
                                 </div>  
                                 <br>
-    
-                                <a href="/marryproduction" class="button">card Production♡</a>
+								<input type="submit" class="button" value = "card Production♡" > 
                                                 
                             </form>
                         </div>
