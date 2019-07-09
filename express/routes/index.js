@@ -134,6 +134,11 @@ router.get('/signup', function (req, res) {
   res.render('signup');
 });
 
+router.get('/marryproduction', function (req, res) {
+  console.log('marryproduction 호출됨');
+  res.render('signup');
+});
+
 
 module.exports = router;
 
