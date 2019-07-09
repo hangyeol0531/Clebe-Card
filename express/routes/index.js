@@ -134,11 +134,19 @@ router.get('/signup', function (req, res) {
   res.render('signup');
 });
 
-router.get('/marryproduction', function (req, res) {
+router.get('/marry2production', function (req, res) {
   console.log('marryproduction 호출됨');
-  res.render('signup');
+  res.render('marryproduction');
 });
 
+router.get('/birthproduction', function (req, res) {
+  console.log('birthproduction 호출됨');
+  res.render('birthproduction');
+});
 
+router.get('/birth2production', function (req, res) {
+  console.log('birthproduction2 호출됨');
+  res.render('birth2production');
+});
 module.exports = router;
 
