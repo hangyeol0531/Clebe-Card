@@ -7,6 +7,50 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/stylesheets/main.css" />
 		<style>
+				@font-face{
+				font-family:font1;
+				src:url("./font/빨간우체통.ttf")
+				}
+		
+				@font-face{
+				font-family:font2;
+				src:url("./font/배달의민족.ttf")
+				}
+				.title{
+					font-family:font1;
+					position:absolute;
+					   top:370px;
+					left:700px;
+					font-size:25px;
+					color:mediumorchid
+				}
+				.who{
+					font-family:font1;
+					position:absolute;
+					   top:410px;
+					left:790px;
+					font-size:17px;
+					color:tomato
+				}
+				.docu{
+					font-family:font1;
+					position:absolute;
+					   top:470px;
+					left:740px;
+					font-size:25px;
+					color:palevioletred
+				}
+		
+				.date{
+					font-family:font1;
+					position:absolute;
+					top:560px;
+					left:960px;
+					font-size:15px;
+					color:green
+				}
+				</style>
+		<style>
 			ul{
 				list-style-type: none;
 				margin: 0;
@@ -55,6 +99,11 @@
 									<li><a href="#"><img src="/images/twitter.png" width="50" alt="" /></a><br></li>
 								</ul>
 								<br>
+
+								<div class = "title"> <%= receive %>님 생일축하드립니다! </div>
+								<div class = "who"> - <%= send %>님 -</div>
+								<div class = "docu"> <%= docu %> </div>
+								<div class = "date"> <%= date %></div>
 
                                 <a href="/index" class="button">Check♡</a>
                                                 

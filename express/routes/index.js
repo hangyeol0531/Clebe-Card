@@ -102,33 +102,40 @@ router.post('/marry2production', function (req, res) {
  });
 
 router.post('/birthproduction', function (req, res) {
-  var paramsinrang = req.body.sinrang || req.query.sinrang;
-  var parampassword = req.body.sinbu || req.query.sinbu;
+  var paramreceive = req.body.receive || req.query.receive;
+  var paramsend = req.body.send || req.query.send;
+  var paramdocu = req.body.docu || req.query.docu;
   var paramdate = req.body.date || req.query.date;
-  var paramplace = req.body.place || req.query.place;
-  var paramphonenumber = req.body.phonenumber || req.query.phonenumber;
-  console.log(paramsinrang)
-  console.log(parampassword)
+  console.log(paramreceive)
+  console.log(paramsend)
+  console.log(paramdocu)
   console.log(paramdate)
-  console.log(paramplace)
-  console.log(paramphonenumber)
 
-  res.render('birthproduction')
-  });
+  res.render('birthproduction',{
+    receive : paramreceive,
+    send : paramsend,
+    docu : paramdocu,
+    date : paramdate,
+    });
+});
 
 router.post('/birth2production', function (req, res) {
-  var paramsinrang = req.body.sinrang || req.query.sinrang;
-  var parampassword = req.body.sinbu || req.query.sinbu;
+  var paramreceive = req.body.receive || req.query.receive;
+  var paramsend = req.body.send || req.query.send;
+  var paramdocu = req.body.docu || req.query.docu;
   var paramdate = req.body.date || req.query.date;
-  var paramplace = req.body.place || req.query.place;
-  var paramphonenumber = req.body.phonenumber || req.query.phonenumber;
-  console.log(paramsinrang)
-  console.log(parampassword)
+  console.log(paramreceive)
+  console.log(paramsend)
+  console.log(paramdocu)
   console.log(paramdate)
-  console.log(paramplace)
-  console.log(paramphonenumber)
-  res.render('birth2production')
-  });
+
+  res.render('birth2production',{
+    receive : paramreceive,
+    send : paramsend,
+    docu : paramdocu,
+    date : paramdate,
+    });
+});
 
 
 router.get('/', function (req, res) {
