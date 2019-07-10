@@ -25,7 +25,7 @@ router.post('/login', function (req, res) {
   var parampassword = req.body.password || req.query.password;
   var parampassword = req.body.repassword || req.query.repassword;
   var userinformation = {name: paramname, id : paramid, password : parampassword };
-  if(parampassword === parampassword){
+  if(parampassword !== parampassword){
     console.log("비밀번호 확인 오류");
     res.status(401).send("<script>alert('비밀번호가 다릅니다!');window.location = '/signup'</script>")
   }
@@ -60,7 +60,13 @@ router.post('/index', function (req, res) {
   });
 });
 
+router.post('/send', function (req, res) {
+  res.status(401).send("<script>alert('성공적으로 전송되었습니다.');window.location = 'Q&A'</script>")
+  });
+
+
 router.post('/marryproduction', function (req, res) {
+  cookiecheck(req, res)
   var paramsinrang = req.body.sinrang || req.query.sinrang;
   var paramsinbu = req.body.sinbu || req.query.sinbu;
   var paramdate = req.body.date || req.query.date;
@@ -81,6 +87,7 @@ router.post('/marryproduction', function (req, res) {
   });
 
 router.post('/marry2production', function (req, res) {
+  cookiecheck(req, res)
   var paramsinrang = req.body.sinrang || req.query.sinrang;
   var paramsinbu = req.body.sinbu || req.query.sinbu;
   var paramdate = req.body.date || req.query.date;
@@ -102,6 +109,7 @@ router.post('/marry2production', function (req, res) {
  });
 
 router.post('/birthproduction', function (req, res) {
+  cookiecheck(req, res)
   var paramreceive = req.body.receive || req.query.receive;
   var paramsend = req.body.send || req.query.send;
   var paramdocu = req.body.docu || req.query.docu;
@@ -120,6 +128,7 @@ router.post('/birthproduction', function (req, res) {
 });
 
 router.post('/birth2production', function (req, res) {
+  cookiecheck(req, res)
   var paramreceive = req.body.receive || req.query.receive;
   var paramsend = req.body.send || req.query.send;
   var paramdocu = req.body.docu || req.query.docu;
@@ -202,6 +211,7 @@ router.get('/birth2', function (req, res) {
 });
 
 router.get('/signup', function (req, res) {
+  cookiecheck(req, res)
   console.log('birth2 호출됨');
   res.render('signup');
 });
