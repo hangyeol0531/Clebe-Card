@@ -211,10 +211,10 @@ router.get('/birth2', function (req, res) {
 });
 
 router.get('/signup', function (req, res) {
-  cookiecheck(req, res)
   console.log('birth2 호출됨');
   res.render('signup');
 });
+
 
 
 
