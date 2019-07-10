@@ -3,6 +3,61 @@
 <html>
 	<head>
 		<title>카드 제작</title>
+
+		<!-- 글자 스타일-->	
+		<style>
+				@font-face{
+				font-family:font1;
+				src:url("./font/빨간우체통.ttf")
+				}
+		
+				@font-face{
+				font-family:font2;
+				src:url("./font/배달의민족.ttf")
+				}
+				.title{
+					font-family:font1;
+					position:absolute;
+					   top:315px;
+					left:640px;
+					font-size:25px;
+					color:hotpink
+				}
+				.who{
+					font-family:font1;
+					position:absolute;
+					   top:390px;
+					left:780px;
+					font-size:17px;
+					color:purple
+				}
+				.docu{
+					font-family:font1;
+					position:absolute;
+					   top:410px;
+					left:630px;
+					font-size:10px;
+					color:palevioletred
+				}
+		
+				.number{
+					font-family:font2;
+					position:absolute;
+					top:575px;
+					left:870px;
+					font-size:10px;
+					color:gray
+				}
+		
+				.date_place{
+					font-family:font1;
+					position:absolute;
+					   top:520px;
+					left:740px;
+					font-size:15px;
+					color:green
+				}
+				</style>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/stylesheets/main.css" />
@@ -56,7 +111,17 @@
 									<li><a href="#"><img src="/images/twitter.png" width="50" alt="" /></a><br></li>
 								</ul>
 								<br>
-
+								<div class = "title"> <%= sinrang %> ♥ <%= sinbu %> 결혼합니다. </div>
+								<div class = "who"><span style="color:blue">신랑</span> : <%= sinrang %> <span style="color:hotpink">신부</span> : <%= sinbu %> </div>
+								<div class = "docu">서로 다른 길을 걸어온 저희가<br>
+										이제 부부의 연으로 한길을 걸어가고자 합니다.
+										서로의 옆자리에 가장 어울리는 <br>
+										반려자가 되어 살아가도록 하겠습니다. 
+										믿음과 사랑으로 하나 되는 <br>
+										이 자리에 함께하셔서 축복해 주시기 바랍니다.<br>
+								</div>
+								<div class = "date_place"> 장소:<%= place %> <br>  일시:<%= date %></div>
+								<div class = "number">전화번호:<%= phonenumber %></div> 
                                 <a href="/index" class="button">Check♡</a>
                                                 
                             </form>

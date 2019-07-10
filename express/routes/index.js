@@ -62,33 +62,44 @@ router.post('/index', function (req, res) {
 
 router.post('/marryproduction', function (req, res) {
   var paramsinrang = req.body.sinrang || req.query.sinrang;
-  var parampassword = req.body.sinbu || req.query.sinbu;
+  var paramsinbu = req.body.sinbu || req.query.sinbu;
   var paramdate = req.body.date || req.query.date;
   var paramplace = req.body.place || req.query.place;
   var paramphonenumber = req.body.phonenumber || req.query.phonenumber;
   console.log(paramsinrang)
-  console.log(parampassword)
+  console.log(paramsinbu)
   console.log(paramdate)
   console.log(paramplace)
   console.log(paramphonenumber)
-
-  res.render('marryproduction')
+  res.render('marryproduction',{
+      sinrang : paramsinrang,
+      sinbu : paramsinbu,
+      date : paramdate,
+      place : paramplace,
+      phonenumber : paramphonenumber
+   });
   });
 
 router.post('/marry2production', function (req, res) {
   var paramsinrang = req.body.sinrang || req.query.sinrang;
-  var parampassword = req.body.sinbu || req.query.sinbu;
+  var paramsinbu = req.body.sinbu || req.query.sinbu;
   var paramdate = req.body.date || req.query.date;
   var paramplace = req.body.place || req.query.place;
   var paramphonenumber = req.body.phonenumber || req.query.phonenumber;
   console.log(paramsinrang)
-  console.log(parampassword)
+  console.log(paramsinbu)
   console.log(paramdate)
   console.log(paramplace)
   console.log(paramphonenumber)
 
-  res.render('marry2production')
-  });
+  res.render('marry2production',{
+    sinrang : paramsinrang,
+    sinbu : paramsinbu,
+    date : paramdate,
+    place : paramplace,
+    phonenumber : paramphonenumber
+    });
+ });
 
 router.post('/birthproduction', function (req, res) {
   var paramsinrang = req.body.sinrang || req.query.sinrang;
@@ -116,7 +127,6 @@ router.post('/birth2production', function (req, res) {
   console.log(paramdate)
   console.log(paramplace)
   console.log(paramphonenumber)
-
   res.render('birth2production')
   });
 
@@ -189,24 +199,7 @@ router.get('/signup', function (req, res) {
   res.render('signup');
 });
 
-router.get('/marryproduction', function (req, res) {
-  console.log('marryproduction 호출됨');
-  res.render('marryproduction');
-});
 
-router.get('/marry2production', function (req, res) {
-  console.log('marryproduction 호출됨');
-  res.render('marryproduction');
-});
 
-router.get('/birthproduction', function (req, res) {
-  console.log('birthproduction 호출됨');
-  res.render('birthproduction');
-});
-
-router.get('/birth2production', function (req, res) {
-  console.log('birthproduction2 호출됨');
-  res.render('birth2production');
-});
 module.exports = router;
 

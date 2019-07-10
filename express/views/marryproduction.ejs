@@ -3,6 +3,61 @@
 <html>
 	<head>
 		<title>카드 제작</title>
+		<!-- 글자 스타일-->	
+		<style>
+		
+		@font-face{
+		font-family:font1;
+		src:url("./font/빨간우체통.ttf")
+		}
+
+		@font-face{
+		font-family:font2;
+		src:url("./font/배달의민족.ttf")
+		}
+		.title{
+			font-family:font1;
+			position:absolute;
+       		top:350px;
+        	left:690px;
+        	font-size:25px;
+			color:hotpink
+		}
+		.who{
+			font-family:font1;
+			position:absolute;
+       		top:400px;
+        	left:820px;
+        	font-size:17px;
+			color:purple
+		}
+		.docu{
+			font-family:font1;
+			position:absolute;
+       		top:430px;
+        	left:700px;
+        	font-size:15px;
+			color:palevioletred
+		}
+
+		.number{
+			font-family:font2;
+			position:absolute;
+       		top:570px;
+        	left:870px;
+        	font-size:10px;
+			color:gray
+		}
+
+		.date_place{
+			font-family:font1;
+			position:absolute;
+       		top:500px;
+        	left:790px;
+        	font-size:15px;
+			color:green
+		}
+		</style>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/stylesheets/main.css" />
@@ -56,6 +111,12 @@
 									<li><a href="#"><img src="/images/twitter.png" width="50" alt="" /></a><br></li>
 								</ul>
 								<br>
+								<div class = "title"> <%= sinrang %> ♥ <%= sinbu %> 결혼합니다. </div>
+								<div class = "who">신랑 : <%= sinrang %> 신부 : <%= sinbu %> </div>
+								<div class = "docu">영원한 사랑, 영원한 행복을 약속하는 두사람이<br>하 나가 되는 순간을 축복해주십시오.
+								</div>
+								<div class = "date_place"> 장소:<%= place %> <br>  일시:<%= date %></div>
+								<div class = "number">전화번호:<%= phonenumber %></div> 
 
                                 <a href="/index" class="button">Check♡</a>
                                                 
