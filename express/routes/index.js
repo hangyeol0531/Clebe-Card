@@ -23,9 +23,9 @@ router.post('/login', function (req, res) {
   var paramname = req.body.name || req.query.name;
   var paramid = req.body.id || req.query.id;
   var parampassword = req.body.password || req.query.password;
-  var parampassword = req.body.repassword || req.query.repassword;
+  var paramrepassword = req.body.repassword || req.query.repassword;
   var userinformation = {name: paramname, id : paramid, password : parampassword };
-  if(parampassword !== parampassword){
+  if(parampassword !== paramrepassword){
     console.log("비밀번호 확인 오류");
     res.status(401).send("<script>alert('비밀번호가 다릅니다!');window.location = '/signup'</script>")
   }
