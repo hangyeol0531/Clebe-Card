@@ -173,14 +173,6 @@ router.get('/index', function (req, res) {
   });
 });
 
-// router.post('/index', function (req, res) {
-//   cookiecheck(req, res)
-//   console.log('index 호출됨');
-//   res.render('index', {
-//     username : username,
-//   });
-// });
-
 router.get('/card', function (req, res) {
   cookiecheck(req, res)
   console.log('card 호출됨');
@@ -223,6 +215,7 @@ router.get('/signup', function (req, res) {
 });
 
 router.get('/information', function (req, res) {
+  cookiecheck(req, res)
   console.log('information 호출됨');
   res.render('information');
 });
