@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 var cookie = require('cookie');
 var bodyParser = require('body-parser');
 var app = express();
+var username;
 
 function cookiecheck(req, res){
   if(!(req.headers.cookie)){
@@ -45,7 +46,7 @@ router.post('/index', function (req, res) {
       res.status(401).send("<script>alert('아이디 정보를 찾을 수 없습니다.');window.location = '/login'</script>")
     }
     else {
-  
+      username = docs[0].name
       // req.session.id = paramid;
       // req.session.save(function(){
       //    console.log(req.session);
@@ -54,7 +55,9 @@ router.post('/index', function (req, res) {
       res.cookie('user', paramid, {
    });
    console.log(req.headers.cookie);
-      res.render('index'); 
+      res.render('index',{
+        username : username,
+      }); 
     }
     model.close;
   });
@@ -165,14 +168,18 @@ router.get('/login', function (req, res) {
 router.get('/index', function (req, res) {
   cookiecheck(req, res)
   console.log('index 호출됨');
-  res.render('index');
+  res.render('index', {
+    username : username, 
+  });
 });
 
-router.post('/index', function (req, res) {
-  cookiecheck(req, res)
-  console.log('index 호출됨');
-  res.render('index');
-});
+// router.post('/index', function (req, res) {
+//   cookiecheck(req, res)
+//   console.log('index 호출됨');
+//   res.render('index', {
+//     username : username,
+//   });
+// });
 
 router.get('/card', function (req, res) {
   cookiecheck(req, res)
